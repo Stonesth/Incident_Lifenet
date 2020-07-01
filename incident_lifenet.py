@@ -10,7 +10,7 @@ from os.path import dirname
 save_path = dirname(__file__)[ : -16]
 propertiesFolder_path = save_path + "Properties"
 
-test = True # If No, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
+test = False # If No, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
 
 t.incidentNumber = "I2006-01580"
 j.sprint = "PNN-TOS-PI2020.3.1"
