@@ -10,10 +10,10 @@ from os.path import dirname
 save_path = dirname(__file__)[ : -16]
 propertiesFolder_path = save_path + "Properties"
 
-test = False # If No, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
+test = True # If No, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
 
-t.incidentNumber = "I2006-01580"
-j.sprint = "PNN-TOS-PI2020.3.1"
+t.incidentNumber = "I2007-00313"
+j.sprint = "PNN-TOS-PI2020.3.2"
 
 j.epic_link = tools.readProperty(propertiesFolder_path, 'Incident_Lifenet', 'epic_link=')
 j.save_path = tools.readProperty(propertiesFolder_path, 'Incident_Lifenet', 'save_path=')
@@ -22,9 +22,13 @@ j.save_path = tools.readProperty(propertiesFolder_path, 'Incident_Lifenet', 'sav
 tools.openBrowserChrome()
 
 # Start MyHours
-m.connectToMyHours()
-m.enterCredentials()
-m.startTrack()
+if test != True :
+    print ("Start the clock for the ticket")
+    m.connectToMyHours()
+    m.enterCredentials()
+    m.startTrack()
+else :
+    print ("We are in test mode - no start new time")
 
 # TopDesk part
 t.connectViaLink()
