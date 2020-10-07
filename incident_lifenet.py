@@ -10,10 +10,10 @@ from os.path import dirname
 save_path = dirname(__file__)[ : -16]
 propertiesFolder_path = save_path + "Properties"
 
-test = True # If No, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
+test = False # If False, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
 
-t.incidentNumber = "I2007-00313"
-j.sprint = "PNN-TOS-PI2020.3.2"
+t.incidentNumber = "I2010-00146"
+j.sprint = "PNN-TOS-PI2020.4.2"
 
 j.epic_link = tools.readProperty(propertiesFolder_path, 'Incident_Lifenet', 'epic_link=')
 j.save_path = tools.readProperty(propertiesFolder_path, 'Incident_Lifenet', 'save_path=')
@@ -55,6 +55,10 @@ j.createFileInto(j.jira, j.jiraTitle, j.description_text)
 
 # Start MyHours
 m.connectToMyHours()
+if test != True :
+    print ("We are already connected not needed to enter credential")
+else :
+    m.enterCredentials()
 m.modifyTrack(j.jira, j.jira + ' - ' + j.jiraTitle, j.epic_link)
 
 # 
