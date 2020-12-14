@@ -7,8 +7,9 @@ from os.path import dirname
 
 
 # -16 for the name of this project Incident_Lifenet
-save_path = dirname(__file__)[ : -16]
-propertiesFolder_path = save_path + "Properties"
+# save_path = dirname(__file__)[ : -16]
+save_path = os.path.dirname(os.path.abspath("__file__"))[ : -16]
+propertiesFolder_path = save_path + "\\"+ "Properties"
 
 test = False # If False, create Jira Ticket else if True We are in test mode => no creation of the JIRA ticket
 
