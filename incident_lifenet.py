@@ -52,7 +52,7 @@ j.startJira()
 
 # Create folder link to this JIRA
 j.createFolderJira(j.jira)
-j.createFileInto(j.jira, j.jiraTitle, j.description_text)
+j.createFileInto(j.jira, j.jiraTitle, j.description_text, j.jira, j.jira + "_Comment_v001" )
 
 # Start MyHours
 m.connectToMyHours()
